@@ -383,53 +383,80 @@ import { useRef } from 'react';
 //   );
 // }
 
+// const App = () => {
+
+//   const [list, setList] = useState([]);
+
+//   const [items, setItems] = useState("");
+
+//   const adToList = () => {
+//     list.push(items);
+//     setList([...list])
+//   }
+
+//   const removeItem = (index) => {
+//     list.splice(index, 1);
+//     setList([...list]);
+//   }
+
+//   return (
+//     <div>
+      
+//       <table>
+//         <tbody>
+//           {
+//             list.length !== 0 ?
+//             list.map((item, i) => {
+//               return ( 
+//                 <tr>
+//                   <td>{i+1}</td>
+//                   <td>{item}</td>
+//                   <td><button onClick={() => removeItem(i)}>remove</button></td>
+//                 </tr>
+//               )
+//             })
+//             :
+//             <tr>
+//               <td colSpan="2">No items in the list</td>
+//             </tr>
+//           }
+//         </tbody>
+//       </table>
+
+
+
+//       <p>{items}</p>
+//       <input onChange={(e) => setItems(e.target.value)} type="text" placeholder="Item"/>
+//       <button onClick={adToList}>add</button>
+//     </div>
+//   )
+// }
+
 const App = () => {
 
-  const [list, setList] = useState([]);
+  let []  = useState();
+  
 
-  const [items, setItems] = useState("");
+  return (  
+    <div className="container">
 
-  const adToList = () => {
-    list.push(items);
-    setList([...list])
-  }
+      <form action="">
+        <input type="text" placeholder='First Name'/> <br />
+        <input type="text" placeholder='Last Name'/> <br />
+        <select>
+          <option value="">Choose City</option>
+          <option value="dhaka">Dhaka</option>
+          <option value="rangpur">Rangpur</option>
+        </select>
+        <br />
+        <input type="radio" name="gender" /> Male
+        <input type="radio" name="gender" /> Female
+        <br />
+        <button type="submit">Submit</button>
+      </form>
 
-  const removeItem = (index) => {
-    list.splice(index, 1);
-    setList([...list]);
-  }
-
-  return (
-    <div>
-      
-      <table>
-        <tbody>
-          {
-            list.length !== 0 ?
-            list.map((item, i) => {
-              return ( 
-                <tr>
-                  <td>{i+1}</td>
-                  <td>{item}</td>
-                  <td><button onClick={() => removeItem(i)}>remove</button></td>
-                </tr>
-              )
-            })
-            :
-            <tr>
-              <td colSpan="2">No items in the list</td>
-            </tr>
-          }
-        </tbody>
-      </table>
-
-
-
-      <p>{items}</p>
-      <input onChange={(e) => setItems(e.target.value)} type="text" placeholder="Item"/>
-      <button onClick={adToList}>add</button>
     </div>
-  )
+  );
 }
 
 export default App;
