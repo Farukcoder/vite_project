@@ -349,38 +349,87 @@ import { useRef } from 'react';
 //   );
 // }
 
+// const App = () => {
+
+//   let [myObj, setMyobj] = useState({
+//     name: 'John',
+//     age: 30,
+//     city: 'New York'
+//   });
+
+//   // const updateObj = () => {
+//   //   setMyobj({
+//   //     ...myObj,
+//   //     age: myObj.age + 1
+//   //   });
+//   // }
+
+//   const updateObj = () => {
+//     setMyobj(
+//       previous => ({
+//         ...previous,
+//         age: previous.age + 1
+//       })
+//     )
+//   }
+
+//   return (
+//     <div>
+//       <p>Name: {myObj.name}</p>
+//       <p>Age: {myObj.age}</p>
+//       <p>City: {myObj.city}</p>
+//       <button onClick={updateObj}>Update Age</button>
+//     </div>
+//   );
+// }
+
 const App = () => {
 
-  let [myObj, setMyobj] = useState({
-    name: 'John',
-    age: 30,
-    city: 'New York'
-  });
+  const [list, setList] = useState([]);
 
-  // const updateObj = () => {
-  //   setMyobj({
-  //     ...myObj,
-  //     age: myObj.age + 1
-  //   });
-  // }
+  const [items, setItems] = useState("");
 
-  const updateObj = () => {
-    setMyobj(
-      previous => ({
-        ...previous,
-        age: previous.age + 1
-      })
-    )
+  const adToList = () => {
+    list.push(items);
+    setList([...list])
+  }
+
+  const removeItem = (index) => {
+    list.splice(index, 1);
+    setList([...list]);
   }
 
   return (
     <div>
-      <p>Name: {myObj.name}</p>
-      <p>Age: {myObj.age}</p>
-      <p>City: {myObj.city}</p>
-      <button onClick={updateObj}>Update Age</button>
+      
+      <table>
+        <tbody>
+          {
+            list.length !== 0 ?
+            list.map((item, i) => {
+              return ( 
+                <tr>
+                  <td>{i+1}</td>
+                  <td>{item}</td>
+                  <td><button onClick={() => removeItem(i)}>remove</button></td>
+                </tr>
+              )
+            })
+            :
+            <tr>
+              <td colSpan="2">No items in the list</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+
+
+
+      <p>{items}</p>
+      <input onChange={(e) => setItems(e.target.value)} type="text" placeholder="Item"/>
+      <button onClick={adToList}>add</button>
     </div>
-  );
+  )
 }
 
 export default App;
