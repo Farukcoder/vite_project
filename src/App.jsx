@@ -2,7 +2,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
-import { use, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { useRef } from 'react';
 // import "./assets/css/index.css"; 
 
@@ -432,31 +432,55 @@ import { useRef } from 'react';
 //   )
 // }
 
+// form submit using useState
+
+// const App = () => {
+
+//   let [FormObj, SetFormObj]  = useState({ fName : "", lName : "", city  : "", gender: "" });
+  
+//   const inputOnChange = (property, value) => {
+//     SetFormObj(prevObj => ({
+//       ...prevObj,
+//       [property] : value
+//     }))
+//   }
+
+//   const FormSubmit = (e) => {
+//     e.preventDefault();
+//     console.log(FormObj);
+//   }
+//   return (  
+//     <div className="container">
+
+//       <form onSubmit={FormSubmit}>
+//         <input onChange={(e) => inputOnChange("fName", e.target.value)} value={FormObj.fName} type="text" placeholder='First Name'/> <br />
+//         <input onChange={(e) => inputOnChange("lName", e.target.value)} value={FormObj.lName} type="text" placeholder='Last Name'/> <br />
+//         <select onChange={(e) => inputOnChange("city", e.target.value)} value={FormObj.city}>
+//           <option value="">Choose City</option>
+//           <option value="dhaka">Dhaka</option>
+//           <option value="rangpur">Rangpur</option>
+//         </select>
+//         <br />
+//         <input onChange={() => inputOnChange("gender", "male")} checked={FormObj.gender === "male"} type="radio" name="gender" /> Male
+//         <input onChange={() => inputOnChange("gender", "female")} checked={FormObj.gender === "female"} type="radio" name="gender" /> Female
+//         <br />
+//         <button type="submit">Submit</button>
+//       </form>
+
+//     </div>
+//   );
+// }
+
+// useEffect use
 const App = () => {
 
-  let []  = useState();
-  
+  useEffect(()=>{})
 
-  return (  
-    <div className="container">
-
-      <form action="">
-        <input type="text" placeholder='First Name'/> <br />
-        <input type="text" placeholder='Last Name'/> <br />
-        <select>
-          <option value="">Choose City</option>
-          <option value="dhaka">Dhaka</option>
-          <option value="rangpur">Rangpur</option>
-        </select>
-        <br />
-        <input type="radio" name="gender" /> Male
-        <input type="radio" name="gender" /> Female
-        <br />
-        <button type="submit">Submit</button>
-      </form>
+  return (
+    <div>
 
     </div>
-  );
+  )
 }
 
 export default App;
