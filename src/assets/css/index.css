@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+.active-item {
+    @apply font-bold text-blue-600;
+}
+
+.pending-item {
+    @apply text-gray-500;
+}

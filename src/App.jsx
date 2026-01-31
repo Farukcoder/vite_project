@@ -4,7 +4,12 @@ import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import { use, useEffect, useState } from 'react';
 import { useRef } from 'react';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 // import "./assets/css/index.css"; 
+import HomePage from './pages/HomePage';
+import Product from './pages/Product';
+import ProfilePage from './pages/ProfilePage';
+import NotFound from './pages/NotFound';
 
 // Basic JSX rendering, jsut showing various features, js, events, styling
 
@@ -472,15 +477,85 @@ import { useRef } from 'react';
 // }
 
 // useEffect use
+// const App = () => {
+
+//   useEffect(()=>{
+//     console.log('Component mounted');
+//   }, [2, 4]);
+
+//   return (
+//     <div>
+
+//     </div>
+//   )
+// }
+
+// promise with useEffect
+// const App = () => {
+
+//   let [data, setData] = useState();
+
+//   useEffect(() => {
+//     fetch('https://jsonplaceholder.typicode.com/posts')
+//       .then(response => response.json())
+//       .then(json => setData(json))
+//   }, []);
+
+//   return (
+//     <div>
+//       {JSON.stringify(data)}
+//     </div>
+//   );
+// }
+
+// async await with useEffect
+// const App = () => {
+//   let [data, setData] = useState();
+
+//   useEffect(() => {
+//     ((async ()=> {
+//       let response = await fetch('https://jsonplaceholder.typicode.com/posts/1')
+//       let json = await response.json();
+//       setData(json);
+//     }))()
+//   }, []);
+
+//   return (
+//     <div>
+//       {JSON.stringify(data)}
+//     </div>
+//   );
+// }
+
+// browser router dom example
+// const App = () => {
+//   return (
+//     <div>
+//       <BrowserRouter>
+//         <Routes>
+//           <Route path="/" element={<HomePage />}/>
+//           <Route path="/product" element={<Product />}/>
+//           <Route path="/profile" element={<ProfilePage />}/>
+//           <Route path="*" element={<NotFound />}/>
+//         </Routes>
+//       </BrowserRouter>
+//     </div>
+//   );
+// }
+
 const App = () => {
-
-  useEffect(()=>{})
-
   return (
     <div>
-
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />}/>
+          <Route path="/product/:id/:name" element={<Product />}/>
+          <Route path="/profile/:facebookID/:youtubeID" element={<ProfilePage />}/>
+          <Route path="*" element={<NotFound />}/>
+        </Routes>
+      </HashRouter>
     </div>
-  )
+  );
 }
 
 export default App;
